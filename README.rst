@@ -8,8 +8,8 @@ an Application Level Confidentiality Profile
 within the DICOM Standard, 2014 edition.
 
 Effectively, this repo will assist in properly
-anonymizing a DICOM file by removing all sensitive
-patient information within a DICOM file.
+anonymizing a DICOM file by creating a python interface to seek out
+all data element tags that need to be removed, or replaced by dummy values.
 
 The focus of this repo is the De-identify section
 within PS 3.15, 2014:
