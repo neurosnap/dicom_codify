@@ -17,8 +17,15 @@ simply execute each python script:
 
 .. code:: bash
 
-    $ invoke ac action_codes.json
-    $ invoke di deidentify.json
+    $ invoke ac --fname=action_codes.json
+    $ invoke di --fname=deidentify.json
+
+Just want to print the outputs instead of saving them to a file?
+
+.. code:: bash
+
+    $ invoke ac
+    $ invoke di
 
 That's it!
 
