@@ -1,19 +1,26 @@
 DICOM Standard 2014 -- De-Identifier Codeified
 ==============================================
 
-The goal of this project is to grab data elements from
-Table E.1-1, Application Level Confidentiality
-Profile Attributes for any DICOM utility to adhere to
-an Application Level Confidentiality Profile
-within the DICOM Standard, 2014 edition.
+The goal of this project is to attain the necessary information from the DICOM
+standard to provide basic DICOM anonymization.  Basic anonymization is described
+in .. _PS 3.15, E.1-1: http://medical.nema.org/medical/dicom/current/output/html/part15.html#table_E.1-1
 
-Effectively, this repo will assist in properly
-anonymizing a DICOM file by creating a python interface to seek out
-all data element tags that need to be removed, or replaced by dummy values.
+This project will assist in properly anonymizing a DICOM file by creating
+json files from the DICOM standard website for the data elements that need to
+be replaced or removed to conform to basic DICOM anonymization.
 
-The focus of this repo is the De-identify section
-within PS 3.15, 2014:
-http://medical.nema.org/medical/dicom/current/output/html/part15.html#table_E.1-1
+How-To
+======
+
+The JSON files are already created, but if you want to create them again,
+simply execute each python script:
+
+.. code:: bash
+
+    $ invoke ac action_codes.json
+    $ invoke di deidentify.json
+
+That's it!
 
 Credits
 =======
