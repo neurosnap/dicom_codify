@@ -3,7 +3,9 @@ DICOM Standard 2014 -- De-Identifier Codeified
 
 The goal of this project is to attain the necessary information from the DICOM
 standard to provide basic DICOM anonymization.  Basic anonymization is described
-in .. _PS 3.15, E.1-1: http://medical.nema.org/medical/dicom/current/output/html/part15.html#table_E.1-1
+in `PS 3.15, E.1-1`_
+
+.. _PS 3.15, E.1-1: http://medical.nema.org/medical/dicom/current/output/html/part15.html#table_E.1-1
 
 This project will assist in properly anonymizing a DICOM file by creating
 json files from the DICOM standard website for the data elements that need to
@@ -26,6 +28,12 @@ Just want to print the outputs instead of saving them to a file?
 
     $ invoke ac
     $ invoke di
+
+I'm using nose for testing
+
+.. code:: bash
+
+    $ nosetests
 
 That's it!
 
