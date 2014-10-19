@@ -1,3 +1,6 @@
+""" DICOM Deidentifier Task Runner
+A convenient way to execute tasks for a python package
+"""
 from invoke import run, task
 
 from dicom_deidentify import soup, create_json

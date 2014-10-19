@@ -13,17 +13,23 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-def soup():
+def soup(html=None):
     """ Download DICOM Standard HTML and convert it into Beautiful Soup
-    Object """
-    ds_url = "http://medical.nema.org/medical/dicom/current/output/html/part15.html"
-    response = requests.get(ds_url)
+    Object
 
-    return BeautifulSoup(response.text)
+    :param html: Instead of using requests to grab HTML, supply HTML from other source"""
+    if html is None:
+        ds_url = "http://medical.nema.org/medical/dicom/current/output/html/part15.html"
+        response = requests.get(ds_url)
+        html = response.text
+
+    return BeautifulSoup(html)
 
 def get_action_codes(soup):
     """ Get action codes that instruct what to do with the DICOM data elements
-    that need to be modified for basic DICOM anonymization """
+    that need to be modified for basic DICOM anonymization
+
+    :param soup: BeautifulSoup object containing DICOM standard documentation """
     e11 = soup.find(attrs={ "id": re.compile("sect_E.1.1") })
     ul = e11.parent.parent.parent.parent.parent \
             .find("ul", attrs={ "class": "itemizedlist" })
@@ -37,7 +43,9 @@ def get_action_codes(soup):
 
 def get_deidentify(soup):
     """ Get DICOM data element tags to remove or replace for basic
-    anonymization """
+    anonymization
+
+    :param soup: BeautifulSoup object containing DICOM standard documentation"""
     e11 = soup.find(attrs={ "id": re.compile("table_E.1-1") })
     table = e11.parent.table
     # table headers
