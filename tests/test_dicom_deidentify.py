@@ -1,4 +1,5 @@
-
+""" Some quick-n-dirty unit tests for HTML consistency, stable
+keys, and list lengths from when I originally created this utilty """
 import os
 import unittest
 
