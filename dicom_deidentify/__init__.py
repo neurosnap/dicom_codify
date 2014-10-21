@@ -13,14 +13,14 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-def soup(html=None):
+def soup(html=None, part=15):
     """ Download DICOM Standard HTML and convert it into Beautiful Soup
     Object
 
     :param html: Instead of using requests to grab HTML, supply HTML from other source"""
+    url = "http://medical.nema.org/medical/dicom/current/output/html/part{0}.html".format(str(part).zfill(2))
     if html is None:
-        ds_url = "http://medical.nema.org/medical/dicom/current/output/html/part15.html"
-        response = requests.get(ds_url)
+        response = requests.get(url)
         html = response.text
 
     return BeautifulSoup(html)
@@ -50,7 +50,7 @@ def get_deidentify(soup):
     table = e11.parent.table
     # table headers
     thead = table.find("thead")
-    headers = [header.find("strong").text for header in thead.find_all("th")]
+    headers = [header.strong.text for header in thead.find_all("th")]
     # table body
     tbody = table.find("tbody")
     trows = tbody.find_all("tr")
@@ -58,7 +58,7 @@ def get_deidentify(soup):
     for row in trows:
         obj = {}
         for index, cell in enumerate(row.find_all("td")):
-            if len(headers) < index:
+            if len(headers) < index or index >= len(headers):
                 break
             if cell.p is None:
                 obj[headers[index]] = None
@@ -67,6 +67,43 @@ def get_deidentify(soup):
         deidentify.append(obj)
 
     return deidentify
+
+def get_data_element_dictionary(soup):
+    """ Get all curently supported DICOM data elements
+
+    :param soup: BeautifulSoup object containing DICOM standard documentation"""
+    e61 = soup.find(attrs={ "id": re.compile("table_6-1") })
+    table = e61.parent.table
+    # table headers
+    thead = table.find("thead")
+    headers = [header.strong.text for header in thead.find_all("th") \
+                if header.strong is not None]
+    headers.append(u"Status")
+    # table body
+    tbody = table.find("tbody")
+    trows = tbody.find_all("tr")
+    dictionary = []
+    for row in trows:
+        obj = {}
+        for index, cell in enumerate(row.find_all("td")):
+            #print(cell.p)
+            key = headers[index]
+            if cell.p is None:
+                obj[key] = None
+            else:
+                if cell.p.span is None:
+                    obj[key] = cell.p.text \
+                                .encode("utf8") \
+                                .decode("ascii", errors="ignore") \
+                                .replace("\n", "")
+                else:
+                    obj[key] = cell.p.span.text \
+                                .encode("utf8") \
+                                .decode("ascii", errors="ignore") \
+                                .replace("\n", "")
+        dictionary.append(obj)
+
+    return dictionary
 
 def create_json(fname, data):
     """ Create JSON file
