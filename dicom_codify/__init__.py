@@ -1,10 +1,4 @@
-""" DICOM Standard 2014 -- E.1.1 De-identifier
-An Application may claim conformance to an Application Level Confidentiality
-Profile and Options as a de-identifier if it protects and retains all
-Attributes as specified in the Profile and Options.
-
-This module exports the de-identify action code information and the data
-element tags to be replaced or removed to a JSON file. """
+""" DICOM Standard 2014 -- Codify """
 from __future__ import print_function
 import re
 import sys

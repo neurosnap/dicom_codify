@@ -1,8 +1,10 @@
-DICOM Standard 2014 -- Codeified
-==============================================
+DICOM Standard 2014 -- Codify
+=============================
 
 The goal of this project is to attain the necessary information from the DICOM
-standard to provide basic DICOM information.
+standard to provide basic DICOM information.  This project attempts to scrape
+the HTML documents used to describe the DICOM standard and "codify" them into
+JSON documents for developers to use.
 
 Data Element Dictionary
 -----------------------

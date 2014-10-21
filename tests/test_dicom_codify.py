@@ -7,7 +7,7 @@ import requests
 #import vcr
 import bs4
 
-import dicom_deidentify as ddi
+import dicom_codify as dci
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
@@ -20,19 +20,19 @@ class TestDeidentify(unittest.TestCase):
         self.html = response.text
 
         self.soup = bs4.BeautifulSoup(self.html)
-        self.deidentify = ddi.get_deidentify(self.soup)
-        self.action_codes = ddi.get_action_codes(self.soup)
+        self.deidentify = dci.get_deidentify(self.soup)
+        self.action_codes = dci.get_action_codes(self.soup)
 
         url = "http://medical.nema.org/medical/dicom/current/output/html/part06.html"
         #with vcr.use_cassette(os.path.join(BASE_DIR, 'fixtures', 'vcr_cassettes', 'second_test.yaml')):
         response = requests.get(url)
         self.ded_html = response.text
         ded_soup = bs4.BeautifulSoup(self.ded_html)
-        self.ded = ddi.get_data_element_dictionary(ded_soup)
+        self.ded = dci.get_data_element_dictionary(ded_soup)
 
     def test_soup_property(self):
         """ dicom_deidentify.soup() ought return BeautifulSoup object """
-        soup = ddi.soup(self.html)
+        soup = dci.soup(self.html)
         self.assertIsInstance(soup, bs4.BeautifulSoup)
         self.assertEqual(soup, self.soup)
 

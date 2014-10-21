@@ -1,4 +1,4 @@
-""" DICOM Deidentifier Task Runner
+""" DICOM Codified Task Runner
 A convenient way to execute tasks for a python package
 """
 from invoke import run, task
