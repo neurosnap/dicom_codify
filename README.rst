@@ -11,7 +11,7 @@ Data Element Dictionary
 
 This section will download all the Data Elements described in the DICOM
 Standard 2014.  `PS 3.6, Table 6-1`_, `PS 3.6, Table 7-1`_, and `PS 3.6, Table 8-1`_
-the following data elements:
+describes the following data elements:
 
 * Registry of DICOM Data Elements
 * Registry of DICOM File Meta Elements
