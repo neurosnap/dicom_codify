@@ -1,10 +1,9 @@
 """ Some quick-n-dirty unit tests for HTML consistency, stable
 keys, and list lengths from when I originally created this utilty """
 import os
+import re
 import unittest
 
-import requests
-#import vcr
 import bs4
 
 import dicom_codify as dci
@@ -14,21 +13,17 @@ BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 class TestDeidentify(unittest.TestCase):
 
     def setUp(self):
-        url = "http://medical.nema.org/medical/dicom/current/output/html/part15.html"
-        #with vcr.use_cassette(os.path.join(BASE_DIR, 'fixtures', 'vcr_cassettes', 'first_test.yaml')):
-        response = requests.get(url)
-        self.html = response.text
-
-        self.soup = bs4.BeautifulSoup(self.html)
+        self.soup = dci.soup(part=15)
         self.deidentify = dci.get_deidentify(self.soup)
         self.action_codes = dci.get_action_codes(self.soup)
 
-        url = "http://medical.nema.org/medical/dicom/current/output/html/part06.html"
-        #with vcr.use_cassette(os.path.join(BASE_DIR, 'fixtures', 'vcr_cassettes', 'second_test.yaml')):
-        response = requests.get(url)
-        self.ded_html = response.text
-        ded_soup = bs4.BeautifulSoup(self.ded_html)
-        self.ded = dci.get_data_element_dictionary(ded_soup)
+        ded_soup = dci.soup(part=6)
+        e61 = ded_soup.find(attrs={ "id": re.compile("table_6-1") })
+        e71 = ded_soup.find(attrs={ "id": re.compile("table_7-1") })
+        e81 = ded_soup.find(attrs={ "id": re.compile("table_8-1") })
+        self.ded = dci.get_data_element_dictionary(e61.parent.table) \
+                   + dci.get_data_element_dictionary(e71.parent.table) \
+                   + dci.get_data_element_dictionary(e81.parent.table)
 
     def test_soup_property(self):
         """ dicom_deidentify.soup() ought return BeautifulSoup object """
@@ -76,7 +71,7 @@ class TestDeidentify(unittest.TestCase):
     def test_data_element_dictionary_length(self):
         """ Make sure list length for dictionary is same from when
         originall created  """
-        self.assertEqual(3808, len(self.ded))
+        self.assertEqual(3839, len(self.ded))
 
     def test_data_element_dictionary_keys(self):
         """ Make sure all keys are present from when originally created """

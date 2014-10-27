@@ -62,12 +62,11 @@ def get_deidentify(soup):
 
     return deidentify
 
-def get_data_element_dictionary(soup):
-    """ Get all curently supported DICOM data elements
+def get_data_element_dictionary(table):
+    """ Get all curently supported DICOM data elements, file meta elements,
+    and directory structuring elements
 
-    :param soup: BeautifulSoup object containing DICOM standard documentation"""
-    e61 = soup.find(attrs={ "id": re.compile("table_6-1") })
-    table = e61.parent.table
+    :param table: BeautifulSoup object containing a DICOM data element HTML table"""
     # table headers
     thead = table.find("thead")
     headers = [header.strong.text for header in thead.find_all("th") \

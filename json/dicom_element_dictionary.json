@@ -30462,5 +30462,197 @@
     "VM": "1",
     "VR": "See Note 2",
     "Tag": "(FFFE,E0DD)"
+  },
+  {
+    "Status": "",
+    "Name": "File Meta Information Group Length",
+    "Keyword": "FileMetaInformationGroupLength",
+    "VM": "1",
+    "VR": "UL",
+    "Tag": "(0002,0000)"
+  },
+  {
+    "Status": "",
+    "Name": "File Meta Information Version",
+    "Keyword": "FileMetaInformationVersion",
+    "VM": "1",
+    "VR": "OB",
+    "Tag": "(0002,0001)"
+  },
+  {
+    "Status": "",
+    "Name": "Media Storage SOP Class UID",
+    "Keyword": "MediaStorageSOPClassUID",
+    "VM": "1",
+    "VR": "UI",
+    "Tag": "(0002,0002)"
+  },
+  {
+    "Status": "",
+    "Name": "Media Storage SOP Instance UID",
+    "Keyword": "MediaStorageSOPInstanceUID",
+    "VM": "1",
+    "VR": "UI",
+    "Tag": "(0002,0003)"
+  },
+  {
+    "Status": "",
+    "Name": "Transfer Syntax UID",
+    "Keyword": "TransferSyntaxUID",
+    "VM": "1",
+    "VR": "UI",
+    "Tag": "(0002,0010)"
+  },
+  {
+    "Status": "",
+    "Name": "Implementation Class UID",
+    "Keyword": "ImplementationClassUID",
+    "VM": "1",
+    "VR": "UI",
+    "Tag": "(0002,0012)"
+  },
+  {
+    "Status": "",
+    "Name": "Implementation Version Name",
+    "Keyword": "ImplementationVersionName",
+    "VM": "1",
+    "VR": "SH",
+    "Tag": "(0002,0013)"
+  },
+  {
+    "Status": "",
+    "Name": "Source Application Entity Title",
+    "Keyword": "SourceApplicationEntityTitle",
+    "VM": "1",
+    "VR": "AE",
+    "Tag": "(0002,0016)"
+  },
+  {
+    "Status": "",
+    "Name": "Sending Application Entity Title",
+    "Keyword": "SendingApplicationEntityTitle",
+    "VM": "1",
+    "VR": "AE",
+    "Tag": "(0002,0017)"
+  },
+  {
+    "Status": "",
+    "Name": "Receiving Application Entity Title",
+    "Keyword": "ReceivingApplicationEntityTitle",
+    "VM": "1",
+    "VR": "AE",
+    "Tag": "(0002,0018)"
+  },
+  {
+    "Status": "",
+    "Name": "Private Information Creator UID",
+    "Keyword": "PrivateInformationCreatorUID",
+    "VM": "1",
+    "VR": "UI",
+    "Tag": "(0002,0100)"
+  },
+  {
+    "Status": "",
+    "Name": "Private Information",
+    "Keyword": "PrivateInformation",
+    "VM": "1",
+    "VR": "OB",
+    "Tag": "(0002,0102)"
+  },
+  {
+    "Status": "",
+    "Name": "File Meta Information Group Length",
+    "Keyword": "FileMetaInformationGroupLength",
+    "VM": "1",
+    "VR": "UL",
+    "Tag": "(0002,0000)"
+  },
+  {
+    "Status": "",
+    "Name": "File Meta Information Version",
+    "Keyword": "FileMetaInformationVersion",
+    "VM": "1",
+    "VR": "OB",
+    "Tag": "(0002,0001)"
+  },
+  {
+    "Status": "",
+    "Name": "Media Storage SOP Class UID",
+    "Keyword": "MediaStorageSOPClassUID",
+    "VM": "1",
+    "VR": "UI",
+    "Tag": "(0002,0002)"
+  },
+  {
+    "Status": "",
+    "Name": "Media Storage SOP Instance UID",
+    "Keyword": "MediaStorageSOPInstanceUID",
+    "VM": "1",
+    "VR": "UI",
+    "Tag": "(0002,0003)"
+  },
+  {
+    "Status": "",
+    "Name": "Transfer Syntax UID",
+    "Keyword": "TransferSyntaxUID",
+    "VM": "1",
+    "VR": "UI",
+    "Tag": "(0002,0010)"
+  },
+  {
+    "Status": "",
+    "Name": "Implementation Class UID",
+    "Keyword": "ImplementationClassUID",
+    "VM": "1",
+    "VR": "UI",
+    "Tag": "(0002,0012)"
+  },
+  {
+    "Status": "",
+    "Name": "Implementation Version Name",
+    "Keyword": "ImplementationVersionName",
+    "VM": "1",
+    "VR": "SH",
+    "Tag": "(0002,0013)"
+  },
+  {
+    "Status": "",
+    "Name": "Source Application Entity Title",
+    "Keyword": "SourceApplicationEntityTitle",
+    "VM": "1",
+    "VR": "AE",
+    "Tag": "(0002,0016)"
+  },
+  {
+    "Status": "",
+    "Name": "Sending Application Entity Title",
+    "Keyword": "SendingApplicationEntityTitle",
+    "VM": "1",
+    "VR": "AE",
+    "Tag": "(0002,0017)"
+  },
+  {
+    "Status": "",
+    "Name": "Receiving Application Entity Title",
+    "Keyword": "ReceivingApplicationEntityTitle",
+    "VM": "1",
+    "VR": "AE",
+    "Tag": "(0002,0018)"
+  },
+  {
+    "Status": "",
+    "Name": "Private Information Creator UID",
+    "Keyword": "PrivateInformationCreatorUID",
+    "VM": "1",
+    "VR": "UI",
+    "Tag": "(0002,0100)"
+  },
+  {
+    "Status": "",
+    "Name": "Private Information",
+    "Keyword": "PrivateInformation",
+    "VM": "1",
+    "VR": "OB",
+    "Tag": "(0002,0102)"
   }
 ]

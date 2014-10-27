@@ -1,6 +1,7 @@
 """ DICOM Codify Task Runner
 A convenient way to execute tasks for a python package
 """
+import re
 from invoke import run, task
 
 from dicom_codify import soup, create_json
@@ -35,7 +36,20 @@ def di(fname=None):
 def ded(fname=None):
     """ Data Element Dictionary """
     from dicom_codify import get_data_element_dictionary
-    output = get_data_element_dictionary(soup(part=6))
+    asoup = soup(part=6)
+    # table 6.1:
+    # http://medical.nema.org/medical/dicom/current/output/html/part06.html#chapter_6
+    e61 = asoup.find(attrs={ "id": re.compile("table_6-1") })
+    # table 7.1:
+    # http://medical.nema.org/medical/dicom/current/output/html/part06.html#chapter_7
+    e71 = asoup.find(attrs={ "id": re.compile("table_7-1") })
+    # table 8.1:
+    # http://medical.nema.org/medical/dicom/current/output/html/part06.html#chapter_8
+    e81 = asoup.find(attrs={ "id": re.compile("table_8-1") })
+
+    output = get_data_element_dictionary(e61.parent.table) \
+             + get_data_element_dictionary(e71.parent.table) \
+             + get_data_element_dictionary(e71.parent.table)
 
     if fname is not None:
         print("Creating DICOM data element dictionary information ...")
