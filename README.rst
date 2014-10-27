@@ -1,19 +1,27 @@
 DICOM Standard 2014 -- Codify
 =============================
 
-The goal of this project is to attain the necessary information from the DICOM
-standard to provide basic DICOM information.  This project attempts to scrape
-the HTML documents used to describe the DICOM standard and "codify" them into
-JSON documents for developers to use.
+The goal of this project is to systematically attain the necessary information
+from the DICOM standard.  This project attempts to scrape the HTML documents
+used to describe the DICOM standard and "codify" them into JSON documents for
+developers to use.
 
 Data Element Dictionary
 -----------------------
 
 This section will download all the Data Elements described in the DICOM
-Standard 2014.  `PS 3.6, Table 6-1`_ describes all the data elements currently
-documented in the standard.
+Standard 2014.  `PS 3.6, Table 6-1`_, `PS 3.6, Table 7-1`_, and `PS 3.6, Table 8-1`_
+the following data elements:
+
+* Registry of DICOM Data Elements
+* Registry of DICOM File Meta Elements
+* Registry of DICOM Directory Structuring Elements
 
 .. _PS 3.6, Table 6-1: http://medical.nema.org/medical/dicom/current/output/html/part06.html
+
+.. _PS 3.6, Table 7-1: http://medical.nema.org/medical/dicom/current/output/html/part06.html#chapter_7
+
+.. _PS 3.6, Table 8-1: http://medical.nema.org/medical/dicom/current/output/html/part06.html#chapter_8
 
 De-identifier
 -------------
