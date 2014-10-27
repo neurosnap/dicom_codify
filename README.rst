@@ -17,7 +17,7 @@ the following data elements:
 * Registry of DICOM File Meta Elements
 * Registry of DICOM Directory Structuring Elements
 
-.. _PS 3.6, Table 6-1: http://medical.nema.org/medical/dicom/current/output/html/part06.html
+.. _PS 3.6, Table 6-1: http://medical.nema.org/medical/dicom/current/output/html/part06.html#chapter_6
 
 .. _PS 3.6, Table 7-1: http://medical.nema.org/medical/dicom/current/output/html/part06.html#chapter_7
 
