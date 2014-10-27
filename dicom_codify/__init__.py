@@ -67,6 +67,12 @@ def get_data_element_dictionary(table):
     and directory structuring elements
 
     :param table: BeautifulSoup object containing a DICOM data element HTML table"""
+    # type
+    de_type = table.parent.parent.find(attrs={ "class": "title" })
+    de_type = de_type.strong.text.split(".")[1].strip()
+    de_type = de_type.encode("utf8") \
+                     .decode("ascii", errors="ignore") \
+                     .replace("\n", "")
     # table headers
     thead = table.find("thead")
     headers = [header.strong.text for header in thead.find_all("th") \
@@ -77,7 +83,9 @@ def get_data_element_dictionary(table):
     trows = tbody.find_all("tr")
     dictionary = []
     for row in trows:
-        obj = {}
+        obj = {
+            "Type": de_type
+        }
         for index, cell in enumerate(row.find_all("td")):
             #print(cell.p)
             key = headers[index]

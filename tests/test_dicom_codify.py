@@ -27,7 +27,7 @@ class TestDeidentify(unittest.TestCase):
 
     def test_soup_property(self):
         """ dicom_deidentify.soup() ought return BeautifulSoup object """
-        soup = dci.soup(self.html)
+        soup = dci.soup()
         self.assertIsInstance(soup, bs4.BeautifulSoup)
         self.assertEqual(soup, self.soup)
 
@@ -75,6 +75,7 @@ class TestDeidentify(unittest.TestCase):
 
     def test_data_element_dictionary_keys(self):
         """ Make sure all keys are present from when originally created """
+        self.assertIn("Type", self.ded[0])
         self.assertIn("Keyword", self.ded[0])
         self.assertIn("Name", self.ded[0])
         self.assertIn("Status", self.ded[0])
