@@ -7,7 +7,7 @@ from invoke import run, task
 from dicom_codify import soup, create_json
 
 @task(help={"fname": "File name to save JSON output"})
-def ac(fname=None):
+def ac(self, fname=None):
     """ Action Codes """
     from dicom_codify import get_action_codes
     output = get_action_codes(soup())
@@ -20,7 +20,7 @@ def ac(fname=None):
         pretty(output)
 
 @task(help={"fname": "File name to save JSON output"})
-def di(fname=None):
+def di(self, fname=None):
     """ De-identifers """
     from dicom_codify import get_deidentify
     output = get_deidentify(soup())
@@ -33,7 +33,7 @@ def di(fname=None):
         pretty(output)
 
 @task(help={"fname": "File name to save JSON output"})
-def ded(fname=None):
+def ded(self, fname=None):
     """ Data Element Dictionary """
     from dicom_codify import get_data_element_dictionary
     asoup = soup(part=6)
