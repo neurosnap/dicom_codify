@@ -57,7 +57,12 @@ def get_deidentify(soup):
             if cell.p is None:
                 obj[headers[index]] = None
             else:
-                obj[headers[index]] = cell.p.text
+                v = cell.p.text.strip()
+                if v == 'N':
+                    v = False
+                elif v == 'Y':
+                    v = True
+                obj[headers[index]] = v
         deidentify.append(obj)
 
     return deidentify
